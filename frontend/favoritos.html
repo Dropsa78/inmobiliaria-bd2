@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Favoritos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:16px;">
+    <h1> :3 Mis Favoritos</h1>
+    <div>
+      <span id="nombreUsuario"></span>
+      <a href="casas.html"><button>← Volver</button></a>
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div id="contenedor"></div>
+
+  <script>
+    const API = "postgresql://postgres:mnwmIXdTikSvaGaWJLDGbkeGSljLiFdp@interchange.proxy.rlwy.net:15562/railway";
+
+    async function cargarFavoritos() {
+      const clienteId = localStorage.getItem("clienteId");
+      const nombre    = localStorage.getItem("clienteNombre");
+
+      if (!clienteId) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      document.getElementById("nombreUsuario").textContent = `👤 ${nombre}`;
+
+      const res  = await fetch(`${API}/favoritos/cliente/${clienteId}`);
+      const data = await res.json();
+
+      const contenedor = document.getElementById("contenedor");
+
+      if (data.length === 0) {
+        contenedor.innerHTML = "<p style='text-align:center; color:#999; margin-top:40px;'>No tienes propiedades guardadas aún.</p>";
+        return;
+      }
+
+      contenedor.innerHTML = "";
+
+      data.forEach(p => {
+        const div = document.createElement("div");
+        div.classList.add("card");
+
+        const imgSrc = `${API}/propiedades/imagen/${p.id}?t=${Date.now()}`;
+
+        div.innerHTML = `
+          <img src="${imgSrc}" width="300"
+            onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23e2e8f0%22/><text x=%22150%22 y=%22105%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2214%22 fill=%22%2394a3b8%22>Sin imagen</text></svg>'" />
+          <h3>${p.titulo || "Sin título"}</h3>
+          <p>${p.descripcion || ""}</p>
+          <p><strong>$${p.precio || 0}</strong></p>
+          <p>${p.tipo || ""}</p>
+          <button onclick="quitarFavorito(${p.id}, this)"> :,3Quitar de favoritos</button>
+        `;
+
+        contenedor.appendChild(div);
+      });
+    }
+
+    async function quitarFavorito(id_propiedad, btn) {
+      const clienteId = localStorage.getItem("clienteId");
+
+      const res = await fetch(`${API}/favoritos/${id_propiedad}/toggle`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_cliente: clienteId })
+      });
+
+      const data = await res.json();
+      if (!data.favorito) {
+        btn.closest(".card").remove();
+        // Si no quedan cards
+        if (!document.querySelector(".card")) {
+          document.getElementById("contenedor").innerHTML =
+            "<p style='text-align:center; color:#999; margin-top:40px;'>No tienes propiedades guardadas aún.</p>";
+        }
+      }
+    }
+
+    function cerrarSesion() {
+      localStorage.clear();
+      window.location.href = "index.html";
+    }
+
+    cargarFavoritos();
+  </script>
+</body>
+</html>

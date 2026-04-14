@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1> Inmobiliaria</h1>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button onclick="mostrarTab('loginCliente')" id="tab-loginCliente" class="tab active">
+      Iniciar sesión
+    </button>
+    <button onclick="mostrarTab('registroCliente')" id="tab-registroCliente" class="tab">
+      Registrarse
+    </button>
+    <button onclick="mostrarTab('loginAgente')" id="tab-loginAgente" class="tab">
+      Soy agente
+    </button>
+  </div>
+
+  <!-- LOGIN CLIENTE -->
+  <div id="loginCliente" class="panel">
+    <h2>Iniciar sesión</h2>
+    <input type="email" id="correoLogin" placeholder="Correo electrónico">
+    <button onclick="loginCliente()">Entrar</button>
+    <p id="errorLogin" class="error"></p>
+  </div>
+
+  <!-- REGISTRO CLIENTE -->
+  <div id="registroCliente" class="panel" style="display:none">
+    <h2>Crear cuenta</h2>
+    <input type="text"  id="regNombre"   placeholder="Nombre completo">
+    <input type="email" id="regCorreo"   placeholder="Correo electrónico">
+    <input type="tel"   id="regTelefono" placeholder="Teléfono (opcional)">
+    <button onclick="registrarCliente()">Registrarse</button>
+    <p id="errorRegistro" class="error"></p>
+  </div>
+
+  <!-- LOGIN AGENTE -->
+  <div id="loginAgente" class="panel" style="display:none">
+    <h2>Acceso agente</h2>
+    <input type="password" id="passwordAgente" placeholder="Contraseña">
+    <button onclick="loginAgente()">Entrar</button>
+    <p id="errorAgente" class="error"></p>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

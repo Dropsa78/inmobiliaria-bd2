@@ -1,0 +1,12 @@
+node_modules/ 
+.env
+backup.sql
+firebase.json
+firestore.indexes.json
+node_modules/
+.env
+backup.sql
+frontend/.firebase
+frontend/firebase.json
+frontend/.firebaserc
+frontend/.gitignore

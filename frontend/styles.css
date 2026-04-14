@@ -1,0 +1,494 @@
+/* ============================================
+   BASE
+============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #111111;
+  color: #f0ead6;
+  min-height: 100vh;
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+nav, #infoSesion {
+  background: #0a0a0a;
+  border-bottom: 1px solid #C9A84C;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+#infoSesion span {
+  color: #888;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   LOGO / TÍTULO
+============================================ */
+h1 {
+  color: #C9A84C;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-align: center;
+  padding: 40px 32px 8px;
+  background: #0a0a0a;
+}
+
+h2 {
+  color: #f0ead6;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   HERO SUBTITLE
+============================================ */
+.hero-sub {
+  background: #0a0a0a;
+  text-align: center;
+  padding: 0 32px 32px;
+  color: #666;
+  font-size: 13px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+/* ============================================
+   BOTONES
+============================================ */
+button {
+  background: transparent;
+  border: 1px solid #C9A84C;
+  color: #C9A84C;
+  padding: 8px 20px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #C9A84C;
+  color: #0a0a0a;
+}
+
+button.btn-secundario {
+  border-color: #333;
+  color: #666;
+}
+
+button.btn-secundario:hover {
+  background: #1e1e1e;
+  color: #f0ead6;
+}
+
+button.btn-peligro {
+  border-color: #7a2020;
+  color: #c0392b;
+}
+
+button.btn-peligro:hover {
+  background: #7a2020;
+  color: #f0ead6;
+}
+
+/* ============================================
+   INPUTS
+============================================ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"] {
+  background: #0a0a0a;
+  border: 1px solid #2e2e2e;
+  border-bottom-color: #C9A84C;
+  color: #f0ead6;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: Georgia, serif;
+  width: 100%;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus {
+  border-color: #C9A84C;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #444;
+  letter-spacing: 1px;
+}
+
+input[type="file"] {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+/* ============================================
+   PANEL AGENTE
+============================================ */
+#panelAgente {
+  background: #0a0a0a;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+#panelAgente h2 {
+  width: 100%;
+}
+
+#panelAgente input {
+  flex: 1;
+  min-width: 160px;
+  margin-bottom: 0;
+}
+
+#panelAgente button {
+  padding: 10px 28px;
+  background: #C9A84C;
+  color: #0a0a0a;
+  font-weight: 600;
+  border-color: #C9A84C;
+}
+
+#panelAgente button:hover {
+  background: #e0bd6a;
+}
+
+/* ============================================
+   GRID DE CARDS
+============================================ */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 40px 32px;
+  background: #111;
+}
+
+/* ============================================
+   CARD PROPIEDAD
+============================================ */
+.card {
+  background: #0a0a0a;
+  border: 1px solid #1e1e1e;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: #C9A84C;
+  transform: translateY(-2px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #1e1e1e;
+  background: #1a1a1a;
+}
+
+.card h3 {
+  color: #f0ead6;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 16px 16px 4px;
+}
+
+.card p {
+  color: #666;
+  font-size: 13px;
+  padding: 4px 16px;
+  line-height: 1.6;
+}
+
+.card p strong {
+  color: #C9A84C;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.card-tipo {
+  color: #C9A84C !important;
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase;
+  padding-top: 16px !important;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid #1e1e1e;
+  margin-top: 12px;
+}
+
+.card-actions button {
+  font-size: 11px;
+  padding: 6px 14px;
+}
+
+/* ============================================
+   FORMULARIO EDITAR INLINE
+============================================ */
+.form-editar {
+  background: #111;
+  border-top: 1px solid #1e1e1e;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-editar input {
+  margin-bottom: 0;
+}
+
+.form-editar .form-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ============================================
+   MODAL DETALLE
+============================================ */
+#modalDetalle > div {
+  background: #0a0a0a !important;
+  border: 1px solid #C9A84C;
+}
+
+#modalTitulo {
+  color: #f0ead6;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+#modalDescripcion {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+
+#modalPrecio {
+  color: #C9A84C;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+#modalTipo {
+  color: #C9A84C !important;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   TABS (index.html)
+============================================ */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  background: #0a0a0a;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 0 32px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #666;
+  padding: 16px 32px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #C9A84C;
+  background: transparent;
+}
+
+.tab.active {
+  color: #C9A84C;
+  border-bottom-color: #C9A84C;
+  background: transparent;
+}
+
+/* ============================================
+   PANEL LOGIN/REGISTRO (index.html)
+============================================ */
+.panel {
+  max-width: 420px;
+  margin: 48px auto;
+  padding: 40px;
+  background: #0a0a0a;
+  border: 1px solid #1e1e1e;
+}
+
+.panel h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #C9A84C;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.panel button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: #C9A84C;
+  color: #0a0a0a;
+  font-weight: 600;
+  border-color: #C9A84C;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.panel button:hover {
+  background: #e0bd6a;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+  min-height: 20px;
+}
+
+/* ============================================
+   FAVORITOS
+============================================ */
+.fav-header {
+  background: #0a0a0a;
+  border-bottom: 1px solid #C9A84C;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fav-header h1 {
+  padding: 0;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #333;
+  margin-top: 80px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   LINK FAVORITOS EN NAVBAR
+============================================ */
+#linkFavoritos a,
+#linkFavoritos {
+  text-decoration: none;
+}
+
+#linkFavoritos button {
+  border-color: #C9A84C;
+  color: #C9A84C;
+}
+
+/* ============================================
+   SCROLLBAR
+============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 768px) {
+  #contenedor {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+
+  #panelAgente {
+    flex-direction: column;
+    padding: 20px 16px;
+  }
+
+  #panelAgente input {
+    width: 100%;
+  }
+
+  .tabs {
+    padding: 0;
+  }
+
+  .tab {
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+
+  .panel {
+    margin: 24px 16px;
+    padding: 28px 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+}

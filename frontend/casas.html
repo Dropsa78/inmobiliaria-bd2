@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propiedades</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1> Propiedades</h1>
+
+  <div id="infoSesion" style="text-align:right; padding: 8px 16px;">
+    <span id="nombreUsuario"></span>
+
+    <!-- ✅ Paso 7 — solo visible para clientes -->
+    <a href="favoritos.html" id="linkFavoritos" style="display:none">
+      <button> :3 Mis favoritos</button>
+    </a>
+
+    <button onclick="cerrarSesion()">Cerrar sesión</button>
+  </div>
+
+  <!-- PANEL AGENTE -->
+  <div id="panelAgente" style="display:none;">
+    <h2>Agregar Propiedad</h2>
+    <input type="text"   id="titulo"      placeholder="Título">
+    <input type="text"   id="descripcion" placeholder="Descripción">
+    <input type="number" id="precio"      placeholder="Precio">
+    <input type="text"   id="tipo"        placeholder="Tipo">
+    <input type="file"   id="imagen">
+    <button onclick="crearPropiedad()">Agregar</button>
+  </div>
+
+  <div id="contenedor"></div>
+
+  <!-- MODAL DETALLE -->
+  <div id="modalDetalle" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:12px; max-width:600px; width:90%; max-height:90vh; overflow-y:auto; padding:24px; position:relative;">
+
+      <button onclick="cerrarModal()" style="position:absolute; top:12px; right:16px; font-size:20px; background:none; border:none; cursor:pointer;">✕</button>
+
+      <img id="modalImagen" src="" width="100%" style="border-radius:8px; object-fit:cover; max-height:300px;">
+
+      <h2 id="modalTitulo"     style="margin-top:16px;"></h2>
+      <p  id="modalDescripcion"></p>
+      <p><strong id="modalPrecio"></strong></p>
+      <p  id="modalTipo"       style="color:#666;"></p>
+
+      <button onclick="contactarAgente()" style="margin-top:16px; width:100%; padding:12px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
+        Contactar agente
+      </button>
+
+    </div>
+  </div>
+
+  <!--  Solo un script al final -->
+  <script src="app.js"></script>
+</body>
+</html>
